@@ -5,8 +5,6 @@ public class BoardSetup {
 
     private JPanel board = new JPanel(new GridLayout(8,8));
     private JButton[][] boardSquares = new JButton[8][8];
-    private JButton button;
-
 
     public BoardSetup() {
         initializeBoard();
@@ -27,13 +25,20 @@ public class BoardSetup {
                 for (int j = 0; j < 8; j++) {
                     JButton b = new JButton();
                     b.setOpaque(true);
-                    b.setBorder(null);
                     if (j%2==0) {
+                        if (j <= 2) {
+                            b.setIcon(new ImageIcon("RedFigureIcon.png"));
+                        }
+                        if (j >= 5) {
+                            b.setIcon(new ImageIcon("BlackFigureIcon.png"));
+
+                        }
                         b.setBackground(Color.BLACK);
                     }
                     else {
                         b.setBackground(Color.WHITE);
                     }
+                    b.setBorder(null);
                     boardSquares[i][j] = b;
                 }
             }
@@ -41,13 +46,19 @@ public class BoardSetup {
                 for (int j = 0; j < 8; j++) {
                     JButton b = new JButton();
                     b.setOpaque(true);
-                    b.setBorder(null);
                     if (j%2==0) {
                         b.setBackground(Color.WHITE);
                     }
                     else {
+                        if (j <= 2) {
+                            b.setIcon(new ImageIcon("RedFigureIcon.png"));
+                        }
+                        if (j >= 5) {
+                            b.setIcon(new ImageIcon("BlackFigureIcon.png"));
+                        }
                         b.setBackground(Color.BLACK);
                     }
+                    b.setBorder(null);
                     boardSquares[i][j] = b;
                 }
             }
