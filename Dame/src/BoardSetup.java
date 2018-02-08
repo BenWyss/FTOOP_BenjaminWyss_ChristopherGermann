@@ -8,6 +8,8 @@ public class BoardSetup implements ActionListener{
     private JPanel board = new JPanel(new GridLayout(8,8));
     private JButton[][] boardSquares = new JButton[8][8];
 
+    private boolean buttonIsSelected = false;
+
     /**
      * For Board Grid understanding:
      * (0,0) ---------- (7,0)
@@ -55,7 +57,9 @@ public class BoardSetup implements ActionListener{
                 b.setBackground(blackOrWhite(i, j));
                 b.setIcon(redOrBlack(j, b));
                 b.setBorder(null);
-                b.addActionListener(this);
+                if (b.getBackground() == Color.BLACK) {
+                    b.addActionListener(this);
+                }
                 boardSquares[i][j] = b;
             }
         }
@@ -66,14 +70,45 @@ public class BoardSetup implements ActionListener{
         }
     }
 
+    /* BUTTONCLICK EVENT */
     @Override
     public void actionPerformed(ActionEvent e) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (e.getSource() == boardSquares[i][j]) {
-                    System.out.println(i + " " + j);
-                    //DO SOMETHING HERE!
+                    if (buttonIsSelected) {
+                        unselectButton();
+                    }
+                    highlightSelectedButton(boardSquares[i][j], i, j);
+                    buttonIsSelected = true;
                 }
+            }
+        }
+    }
+
+    private void highlightSelectedButton(JButton button, int i, int j) {
+        if (i != 0 && j != 0 && boardSquares[i-1][j-1].getIcon() == null && boardSquares[i][j].getIcon() != redOrBlack(j, boardSquares[i][j])) {
+            button.setBackground(Color.ORANGE);
+            boardSquares[i-1][j-1].setBackground(Color.PINK);
+        }
+        if (i != 7 && j != 0 && boardSquares[i+1][j-1].getIcon() == null && boardSquares[i][j].getIcon() != redOrBlack(j, boardSquares[i][j])) {
+            button.setBackground(Color.ORANGE);
+            boardSquares[i+1][j-1].setBackground(Color.PINK);
+        }
+        if (i != 7 && j != 7 && boardSquares[i+1][j+1].getIcon() == null && boardSquares[i][j].getIcon() != redOrBlack(j, boardSquares[i][j])) {
+            button.setBackground(Color.ORANGE);
+            boardSquares[i+1][j+1].setBackground(Color.PINK);
+        }
+        if (i != 0 && j != 7 && boardSquares[i-1][j+1].getIcon() == null && boardSquares[i][j].getIcon() != redOrBlack(j, boardSquares[i][j])) {
+            button.setBackground(Color.ORANGE);
+            boardSquares[i-1][j+1].setBackground(Color.PINK);
+        }
+    }
+
+    private void unselectButton() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                boardSquares[i][j].setBackground(blackOrWhite(i, j));
             }
         }
     }
