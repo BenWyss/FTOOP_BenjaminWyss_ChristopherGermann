@@ -8,18 +8,22 @@ public class BoardSetup {
 
     public BoardSetup() {
         initializeBoard();
-        initializeSquares();
+        initializeBoardSquares();
     }
 
     public JPanel getBoard() {
         return board;
     }
 
+    public JButton[][] getBoardSquares() {
+        return boardSquares;
+    }
+
     private void initializeBoard() {
         board.setOpaque(true);
     }
 
-    private void initializeSquares() {
+    private void initializeBoardSquares() {
         for (int i = 0; i < 8; i++) {
             if (i%2==0) {
                 for (int j = 0; j < 8; j++) {
