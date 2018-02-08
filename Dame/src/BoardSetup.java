@@ -23,48 +23,29 @@ public class BoardSetup {
         board.setOpaque(true);
     }
 
+    private Color blackOrWhite(int i, int j) {
+        return (i + j) % 2 == 0 ? Color.WHITE : Color.BLACK;
+    }
+
+    private ImageIcon redOrBlack(int j, JButton button) {
+        if (j < 3 && button.getBackground() == Color.BLACK) {
+            return new ImageIcon("BlackFigureIcon.png");
+        }
+        if (j > 4 && button.getBackground() == Color.BLACK) {
+            return new ImageIcon("RedFigureIcon.png");
+        }
+        return null;
+    }
+
     private void initializeBoardSquares() {
         for (int i = 0; i < 8; i++) {
-            if (i%2==0) {
-                for (int j = 0; j < 8; j++) {
-                    JButton b = new JButton();
-                    b.setOpaque(true);
-                    if (j%2==0) {
-                        if (j <= 2) {
-                            b.setIcon(new ImageIcon("RedFigureIcon.png"));
-                        }
-                        if (j >= 5) {
-                            b.setIcon(new ImageIcon("BlackFigureIcon.png"));
-
-                        }
-                        b.setBackground(Color.BLACK);
-                    }
-                    else {
-                        b.setBackground(Color.WHITE);
-                    }
-                    b.setBorder(null);
-                    boardSquares[i][j] = b;
-                }
-            }
-            else {
-                for (int j = 0; j < 8; j++) {
-                    JButton b = new JButton();
-                    b.setOpaque(true);
-                    if (j%2==0) {
-                        b.setBackground(Color.WHITE);
-                    }
-                    else {
-                        if (j <= 2) {
-                            b.setIcon(new ImageIcon("RedFigureIcon.png"));
-                        }
-                        if (j >= 5) {
-                            b.setIcon(new ImageIcon("BlackFigureIcon.png"));
-                        }
-                        b.setBackground(Color.BLACK);
-                    }
-                    b.setBorder(null);
-                    boardSquares[i][j] = b;
-                }
+            for (int j = 0; j < 8; j++) {
+                JButton b = new JButton();
+                b.setOpaque(true);
+                b.setBackground(blackOrWhite(i, j));
+                b.setIcon(redOrBlack(j, b));
+                b.setBorder(null);
+                boardSquares[i][j] = b;
             }
         }
         for (int ii = 0; ii < 8; ii++) {
