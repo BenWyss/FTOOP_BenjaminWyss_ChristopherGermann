@@ -29,10 +29,6 @@ public class BoardSetup implements ActionListener{
         return board;
     }
 
-    public JButton[][] getBoardSquares() {
-        return boardSquares;
-    }
-
     private void initializeBoard() {
         board.setOpaque(true);
     }
