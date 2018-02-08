@@ -12,8 +12,8 @@ public class Main {
         frame.setResizable(false);
         frame.setSize(805, 805);
         frame.add(bs.getBoard());
-        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
