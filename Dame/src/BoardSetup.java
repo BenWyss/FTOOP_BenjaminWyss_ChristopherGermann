@@ -9,9 +9,12 @@ public class BoardSetup implements ActionListener{
     private JButton[][] boardSquares = new JButton[8][8];
 
     private boolean buttonIsSelected = false;
+    private int selectedRow;
+    private int selectedColumn;
+    private Icon selectedImage;
 
     /**
-     * For Board Grid understanding:
+     * For Board Grid understanding: --> It always starts top left because of GridLayout (Fills in from top to bottom)
      * (0,0) ---------- (7,0)
      *  |                  |
      *  |                  |
@@ -57,9 +60,7 @@ public class BoardSetup implements ActionListener{
                 b.setBackground(blackOrWhite(i, j));
                 b.setIcon(redOrBlack(j, b));
                 b.setBorder(null);
-                if (b.getBackground() == Color.BLACK) {
-                    b.addActionListener(this);
-                }
+                b.addActionListener(this);
                 boardSquares[i][j] = b;
             }
         }
@@ -76,14 +77,31 @@ public class BoardSetup implements ActionListener{
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (e.getSource() == boardSquares[i][j]) {
-                    if (buttonIsSelected) {
+                    if (boardSquares[i][j].getBackground() == Color.PINK) {
+                        moveFigure(i, j);
                         unselectButton();
                     }
-                    highlightSelectedButton(boardSquares[i][j], i, j);
+                    if (boardSquares[i][j].getBackground() == Color.WHITE || buttonIsSelected) {
+                        unselectButton();
+                    }
+                    if (boardSquares[i][j].getBackground() == Color.BLACK) {
+                        highlightSelectedButton(boardSquares[i][j], i, j);
+                        selectedRow = i;
+                        selectedColumn = j;
+                        selectedImage = boardSquares[i][j].getIcon();
+                    }
                     buttonIsSelected = true;
                 }
             }
         }
+    }
+
+    private void moveFigure(int i, int j) {
+        boardSquares[i][j].setBackground(Color.BLACK);
+        boardSquares[i][j].setIcon(selectedImage);
+        boardSquares[i][j].setBorder(null);
+        boardSquares[selectedRow][selectedColumn].setIcon(null);
+        boardSquares[selectedRow][selectedColumn].setBorder(null);
     }
 
     private void highlightSelectedButton(JButton button, int i, int j) {
