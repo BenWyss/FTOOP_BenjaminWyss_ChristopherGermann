@@ -7,11 +7,15 @@ public class BoardSetup implements ActionListener{
 
     private JPanel board = new JPanel(new GridLayout(8,8));
     private JButton[][] boardSquares = new JButton[8][8];
-
     private boolean buttonIsSelected = false;
     private int selectedRow;
     private int selectedColumn;
-    private Icon selectedImage;
+    private ImageIcon selectedImage;
+
+    private ImageIcon redFigureIcon = new ImageIcon("RedFigureIcon.png");
+    private ImageIcon blackFigureIcon = new ImageIcon("BlackFigureIcon.png");
+
+    private int turn = 0;
 
     /**
      * For Board Grid understanding: --> It always starts top left because of GridLayout (Fills in from top to bottom)
@@ -77,7 +81,25 @@ public class BoardSetup implements ActionListener{
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (e.getSource() == boardSquares[i][j]) {
-                    if (boardSquares[i][j].getBackground() == Color.PINK) {
+                    if (turn%2 == 0) {
+                        if (boardSquares[i][j].getBackground() == Color.BLACK && boardSquares[i][j].getIcon() == blackFigureIcon) {
+                            highlightSelectedButton(boardSquares[i][j], i, j);
+                            selectedRow = i;
+                            selectedColumn = j;
+                            selectedImage = (ImageIcon)boardSquares[i][j].getIcon(); //Upwards Cast Necessary
+                        }
+                    }
+                    else {
+                        if (boardSquares[i][j].getBackground() == Color.BLACK && boardSquares[i][j].getIcon() == redFigureIcon) {
+                            highlightSelectedButton(boardSquares[i][j], i, j);
+                            selectedRow = i;
+                            selectedColumn = j;
+                            selectedImage = (ImageIcon)boardSquares[i][j].getIcon(); //Upwards Cast Necessary
+                        }
+                    }
+
+
+                    /*if (boardSquares[i][j].getBackground() == Color.PINK) {
                         moveFigure(i, j);
                         unselectButton();
                     }
@@ -90,7 +112,7 @@ public class BoardSetup implements ActionListener{
                         selectedColumn = j;
                         selectedImage = boardSquares[i][j].getIcon();
                     }
-                    buttonIsSelected = true;
+                    buttonIsSelected = true;*/
                 }
             }
         }
