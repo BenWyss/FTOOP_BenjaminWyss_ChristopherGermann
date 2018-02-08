@@ -1,10 +1,24 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class BoardSetup {
+public class BoardSetup implements ActionListener{
 
     private JPanel board = new JPanel(new GridLayout(8,8));
     private JButton[][] boardSquares = new JButton[8][8];
+
+    /**
+     * For Board Grid understanding:
+     * (0,0) ---------- (7,0)
+     *  |                  |
+     *  |                  |
+     *  |                  |
+     *  |                  |
+     *  |                  |
+     *  (0,7)---------- (7,7)
+     *
+     **/
 
     public BoardSetup() {
         initializeBoard();
@@ -45,12 +59,25 @@ public class BoardSetup {
                 b.setBackground(blackOrWhite(i, j));
                 b.setIcon(redOrBlack(j, b));
                 b.setBorder(null);
+                b.addActionListener(this);
                 boardSquares[i][j] = b;
             }
         }
         for (int ii = 0; ii < 8; ii++) {
             for (int jj = 0; jj < 8; jj++) {
                 board.add(boardSquares[jj][ii]);
+            }
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (e.getSource() == boardSquares[i][j]) {
+                    System.out.println(i + " " + j);
+                    //DO SOMETHING HERE!
+                }
             }
         }
     }
