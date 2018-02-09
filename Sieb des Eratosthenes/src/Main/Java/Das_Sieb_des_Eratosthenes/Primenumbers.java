@@ -1,7 +1,6 @@
 package Das_Sieb_des_Eratosthenes;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Primenumbers {
 
