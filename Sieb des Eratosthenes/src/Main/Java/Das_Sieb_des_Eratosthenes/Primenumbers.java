@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 public class Primenumbers {
 
-    public static void printPrimenumbers() {
+    public static ArrayList<Integer> printPrimenumbers() {
         //Zunächst werden alle Zahlen 2, 3, 4,… bis zu einem frei wählbaren Maximalwert aufgeschrieben
         int maximalWert = 100;
         // Legt eine neue Liste an
         ArrayList<Boolean> zahlenListe = new ArrayList<Boolean>();
+        ArrayList<Integer> numberList = new ArrayList<>();
 
         // Füllt die neue Liste mit lauter true-Elementen
         for (int i = 0; i <= maximalWert; i++) {
@@ -33,8 +34,10 @@ public class Primenumbers {
 
         for (int i = 0; i <= maximalWert - 1; i++) {
             if (zahlenListe.get(i) && i > 1) {
+                numberList.add(i);
                 System.out.print(i + " ");
             }
         }
+        return numberList;
     }
 }
