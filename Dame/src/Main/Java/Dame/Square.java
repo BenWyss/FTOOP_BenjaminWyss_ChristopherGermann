@@ -1,5 +1,6 @@
+package Dame;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class Square {
 
@@ -9,9 +10,9 @@ public class Square {
     private boolean hasFigure;
 
     private ImageIcon figure;
-    private FigureType figureType;
+    private Dame.FigureType figureType;
 
-    public Square(JButton button,  ImageIcon figure, FigureType figureType, boolean isSelected, boolean hasFigure) {
+    public Square(JButton button, ImageIcon figure, Dame.FigureType figureType, boolean isSelected, boolean hasFigure) {
         this.button = button;
         this.isSelected = isSelected;
         this.hasFigure = hasFigure;
@@ -42,7 +43,7 @@ public class Square {
         return figure;
     }
 
-    public FigureType getFigureType() {
+    public Dame.FigureType getFigureType() {
         return figureType;
     }
 
@@ -62,7 +63,7 @@ public class Square {
         this.figure = figure;
     }
 
-    public void setFigureType(FigureType figureType) {
+    public void setFigureType(Dame.FigureType figureType) {
         this.figureType = figureType;
     }
 }

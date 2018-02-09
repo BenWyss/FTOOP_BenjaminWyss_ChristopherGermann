@@ -1,3 +1,5 @@
+package Dame;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -6,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Dame");
 
-        BoardSetup bs = new BoardSetup();
+        Dame.BoardSetup bs = new Dame.BoardSetup();
 
         frame.setBackground(Color.WHITE);
         frame.setResizable(false);
