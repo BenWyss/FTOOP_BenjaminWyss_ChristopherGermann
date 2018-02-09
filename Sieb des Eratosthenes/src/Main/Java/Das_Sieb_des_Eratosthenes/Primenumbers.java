@@ -7,7 +7,6 @@ public class Primenumbers {
     public static void printPrimenumbers() {
         //Zunächst werden alle Zahlen 2, 3, 4,… bis zu einem frei wählbaren Maximalwert aufgeschrieben
         int maximalWert = 100;
-        
         // Legt eine neue Liste an
         ArrayList<Boolean> zahlenListe = new ArrayList<Boolean>();
 
