@@ -41,7 +41,9 @@ Wir führen einen Standardheader für alle Java Files ein.
 
 ## Namenskonventionen
 Wir verwenden <b>nie</b> Spaces! Anstatt der Spaces verwenden wir “_”. 
+
 Beispiel:
+
 	schlecht: Unit Test
 	gut	: Unit_Test
 
@@ -54,6 +56,8 @@ Wir kommentieren mit JavaDocs. Jede Methode soll beschrieben werden und die Para
 - @value	(Gibt den Wert eines konstanten Feldes 
 - @exception	(Beschreibung einer Exception)
 - @throws	(beschreibung des throws)
+
+Hier ein [Beispiel](https://stackoverflow.com/questions/18054767/how-to-format-a-heading-in-a-javadoc-comment) von Stackoverflow
 
 
 ## Testing
