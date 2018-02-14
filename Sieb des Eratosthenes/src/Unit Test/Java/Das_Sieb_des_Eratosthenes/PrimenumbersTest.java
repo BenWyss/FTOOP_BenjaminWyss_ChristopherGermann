@@ -1,13 +1,14 @@
 package Das_Sieb_des_Eratosthenes;
 
-import junit.framework.TestCase;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
-class PrimenumbersTest extends TestCase {
+import static org.junit.Assert.assertEquals;
 
-    private ArrayList<Integer> actualList = new ArrayList<Integer>() {{
+public class PrimenumbersTest {
+
+    private ArrayList<Integer> expectedList = new ArrayList<Integer>() {{
         add(2);
         add(3);
         add(5);
@@ -37,6 +38,6 @@ class PrimenumbersTest extends TestCase {
 
     @Test
     public void testPrintPrimenumbers() throws Exception {
-        assertEquals(Primenumbers.printPrimenumbers(), actualList);
+        assertEquals(expectedList, Primenumbers.printPrimenumbers());
     }
 }

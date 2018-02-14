@@ -1,12 +1,19 @@
 package Berechnung_von_Pi;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
-class PiTest extends TestCase {
+import static org.junit.Assert.*;
+
+public class PiTest {
+
     @Test
-    void calculatePi() {
-        //FUCKING WITZ
+    public void calculatePi() throws Exception {
+        assertEquals(1,1);
+    }
+    
+    @Test
+    public void negativeCalculatePi() throws Exception {
+        assertNotEquals(1,2);
     }
 
 }
