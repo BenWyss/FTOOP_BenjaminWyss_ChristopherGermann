@@ -2,7 +2,7 @@ package Berechnung_von_Pi;
 
 public class Pi {
 
-    public static void calculatePi(int numberOfPoints) {
+    public static Double calculatePi(int numberOfPoints) {
 
         int pointsInsideTheCircle = 0;
         double xCoordinate, yCoordinate;
@@ -17,6 +17,11 @@ public class Pi {
         }
         double monteCarlosPi = 4 * (double) pointsInsideTheCircle / numberOfPoints;
 
-        System.out.printf("%d Tropfen, davon %d Tropfen im Viertelkreis, dementsprechend ist Pi etwa %g%n",numberOfPoints,pointsInsideTheCircle,monteCarlosPi);
+        System.out.printf("%d Punkte, davon %d Punkte im Viertelkreis, dementsprechend ist Pi etwa %g%n",numberOfPoints,pointsInsideTheCircle,monteCarlosPi);
+
+        Double abweichung = Math.abs(((Math.PI - monteCarlosPi) / Math.PI) * 100);
+
+        System.out.printf("Abweichung: %.2f%% \n", abweichung);
+        return abweichung;
     }
 }

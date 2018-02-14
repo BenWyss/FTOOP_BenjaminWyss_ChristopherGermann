@@ -8,12 +8,12 @@ public class PiTest {
 
     @Test
     public void calculatePi() throws Exception {
-        assertEquals(1,1);
+        assertTrue(5 > Pi.calculatePi(10000000));
     }
-    
+
     @Test
     public void negativeCalculatePi() throws Exception {
-        assertNotEquals(1,2);
+        assertFalse(5 >= Pi.calculatePi(5));
     }
 
 }
