@@ -7,7 +7,7 @@ Wir verwenden die Hierarchie, welche von Gradle und Maven unterstützt wird:
 (Directories are bold, files regular);
 
 - <b>root</b>
-    - <b>bin</b>
+    - <b>out</b>
     - <b>src</b>
         -  <b>Main</b>
         -  <b>Unit Test</b>
@@ -70,6 +70,15 @@ Ein Test ist vollständig wenn er diese Elemente enthält:
 
 
 ## Branching
+Die "stabile" Version unseres Projektes ist immer auf dem master branch zu finden. Jedesmal, wenn wir einen neuen PVA Auftrag erhalten, 
+generieren wir zuerst einen Sidebranch und schreiben dort unseren Code. Sind wir mit diesem zufrieden wird er wieder in den
+master gemergt. Wir arbeiten <b>nie</b> direkt am Master branch.
+
+
+## Git
+Auf Github speichern wir nur den Code, welcher nicht autogeneriert wurde. Auch Intellij Konfigurationsdateien sollten nicht dort 
+gespeichert werden. Um dies kontrollieren zu können haben wir ein .gitignorefile geschrieben, welches sich um diese
+typischen Probleme kümmern sollte.
 
 ## ReadMe#
 
