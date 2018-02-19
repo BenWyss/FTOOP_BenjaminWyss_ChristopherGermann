@@ -20,6 +20,7 @@ public class Primenumbers {
      * <dt><span class="strong"> Methode printPrimenumbers </span></dt>
      * <dd>Diese Methode berechnet alle Primzahlen zwischen 2 und 100 und returniert diese als ArrayList</dd>
      * </dl>
+     *
      * @return returniert eine ArrayList mit allen Primzahlen von 2 bis 100
      */
 
@@ -52,7 +53,7 @@ public class Primenumbers {
             }
         }
 
-        //Lies alle Primzahlen des arrays aus
+        //Lies alle Primzahlen des Arrays aus
         for (int i = 0; i <= maximalWert - 1; i++) {
             if (zahlenListe.get(i) && i > 1) {
                 numberList.add(i);
