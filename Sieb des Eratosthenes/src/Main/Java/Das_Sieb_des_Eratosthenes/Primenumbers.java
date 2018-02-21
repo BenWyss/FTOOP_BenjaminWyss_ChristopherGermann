@@ -22,12 +22,12 @@ public class Primenumbers {
      */
 
     public static ArrayList<Integer> printPrimenumbers() {
-        //Zunächst werden alle Zahlen 2, 3, 4,… bis zu einem frei wählbaren Maximalwert aufgeschrieben
+        // Zunächst werden alle Zahlen 2, 3, 4,… bis zu einem frei wählbaren Maximalwert aufgeschrieben
         int maxNumber = 100;
 
         // Legt eine neue Liste an
-        ArrayList<Boolean> numberList = new ArrayList<>();
-        ArrayList<Integer> primeNumberList = new ArrayList<>();
+        ArrayList<Boolean> numberList = new ArrayList<>(); // In diesem Array werden die Primzahlen mit true markiert
+        ArrayList<Integer> primeNumberList = new ArrayList<>(); // In diesem Array werden die Primzahlen abgespeichert
 
         // Füllt die neue Liste mit lauter true-Elementen
         for (int i = 0; i <= maxNumber; i++) {
@@ -35,22 +35,19 @@ public class Primenumbers {
         }
 
         for (int i = 2; i <= maxNumber; i++) {
-
             if (numberList.get(i)) {
                 int j = i;
                 do {
                     j += i;
+                    // Alle Vielfachen einer Primzahl werden mit false markiert
                     if (j <= maxNumber) {
-                        // Ist die Zahl ein Vielfaches einer 
-                        // Primzahl, dann wird sie mit false 
-                        // markiert
                         numberList.set(j, false);
                     }
                 } while (j <= maxNumber);
             }
         }
 
-        //Lies alle Primzahlen (true) des Arrays aus
+        // Lies alle Primzahlen (true) des Arrays aus
         for (int i = 0; i <= maxNumber - 1; i++) {
             if (numberList.get(i) && i > 1) {
                 primeNumberList.add(i);
