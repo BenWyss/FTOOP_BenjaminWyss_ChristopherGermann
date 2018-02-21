@@ -11,10 +11,9 @@ public class Stack implements Queue {
     public void addElement(int element) {
         if (nextIndex >= stackSize) {
             stackSize *= 2;
-            //Arrays.copyOf(stack, stackSize); //Keine Klassen aus java.util erlaubt :(
             int[] stackBackup = stack;
             stack = new int[stackSize];
-            System.arraycopy(stackBackup, 0, stack, 0, stackSize/2); //Hehehe! Nicht in java.util :D
+            System.arraycopy(stackBackup, 0, stack, 0, stackSize/2);
         }
         stack[nextIndex] = element;
         nextIndex++;

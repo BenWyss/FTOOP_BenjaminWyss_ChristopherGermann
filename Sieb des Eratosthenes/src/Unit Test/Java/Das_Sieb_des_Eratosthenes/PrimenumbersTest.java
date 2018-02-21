@@ -8,7 +8,6 @@ import static org.junit.Assert.assertNotEquals;
 
 public class PrimenumbersTest {
 
-
     private ArrayList<Integer> expectedList = new ArrayList<Integer>() {{
         add(2);
         add(3);

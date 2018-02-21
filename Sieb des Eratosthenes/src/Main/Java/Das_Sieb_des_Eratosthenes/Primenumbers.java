@@ -14,52 +14,49 @@ import java.util.ArrayList;
 public class Primenumbers {
 
     /**
-     * Introdcution
+     * Methode printPrimenumbers
      *
-     * <dl>
-     * <dt><span class="strong"> Methode printPrimenumbers </span></dt>
-     * <dd>Diese Methode berechnet alle Primzahlen zwischen 2 und 100 und returniert diese als ArrayList</dd>
-     * </dl>
+     * Diese Methode berechnet alle Primzahlen zwischen 2 und 100 und returniert diese als ArrayList
      *
      * @return returniert eine ArrayList mit allen Primzahlen von 2 bis 100
      */
 
     public static ArrayList<Integer> printPrimenumbers() {
         //Zunächst werden alle Zahlen 2, 3, 4,… bis zu einem frei wählbaren Maximalwert aufgeschrieben
-        int maximalWert = 100;
+        int maxNumber = 100;
 
         // Legt eine neue Liste an
-        ArrayList<Boolean> zahlenListe = new ArrayList<Boolean>();
-        ArrayList<Integer> numberList = new ArrayList<>();
+        ArrayList<Boolean> numberList = new ArrayList<>();
+        ArrayList<Integer> primeNumberList = new ArrayList<>();
 
         // Füllt die neue Liste mit lauter true-Elementen
-        for (int i = 0; i <= maximalWert; i++) {
-            zahlenListe.add(i, true);
+        for (int i = 0; i <= maxNumber; i++) {
+            numberList.add(i, true);
         }
 
-        for (int i = 2; i <= maximalWert; i++) {
+        for (int i = 2; i <= maxNumber; i++) {
 
-            if (zahlenListe.get(i)) {
+            if (numberList.get(i)) {
                 int j = i;
                 do {
                     j += i;
-                    if (j <= maximalWert) {
+                    if (j <= maxNumber) {
                         // Ist die Zahl ein Vielfaches einer 
                         // Primzahl, dann wird sie mit false 
                         // markiert
-                        zahlenListe.set(j, false);
+                        numberList.set(j, false);
                     }
-                } while (j <= maximalWert);
+                } while (j <= maxNumber);
             }
         }
 
-        //Lies alle Primzahlen des Arrays aus
-        for (int i = 0; i <= maximalWert - 1; i++) {
-            if (zahlenListe.get(i) && i > 1) {
-                numberList.add(i);
+        //Lies alle Primzahlen (true) des Arrays aus
+        for (int i = 0; i <= maxNumber - 1; i++) {
+            if (numberList.get(i) && i > 1) {
+                primeNumberList.add(i);
                 System.out.print(i + " ");
             }
         }
-        return numberList;
+        return primeNumberList;
     }
 }
