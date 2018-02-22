@@ -48,6 +48,11 @@ public class Queue {
         this.queue[this.position] = number;
     }
 
+
+    /**
+     * Pops the first Element in the Queue and deletes it from the Queue
+     * @return gives the first value in the Queue
+     */
     public int removeElement(){
 
         //Check if there are any more elements to remove
@@ -65,6 +70,7 @@ public class Queue {
             temp[i] = this.queue[i+1];
         }
 
+        //reassigne the queue and decrement the position
         this.queue = null;
         this.queue = temp;
         this.position--;
@@ -72,6 +78,9 @@ public class Queue {
         return popValue;
     }
 
+    /**
+     * Checks if the Queue is empty or not. If it is empty the position is equals to -1, otherwise it would be bigger
+     */
     public boolean isEmpty(){
         if(this.position == -1)
             return true;
@@ -80,6 +89,11 @@ public class Queue {
     }
 
 
+    /**
+     * To String output, helps with the Testing.
+     * toString logs the elements in the queue at this moment.
+     * @return
+     */
     @Override
     public String toString(){
         String output = "";
@@ -88,9 +102,7 @@ public class Queue {
             output+= this.queue[i];
             output+= ",";
         }
-
         return output;
-
     }
 
 
