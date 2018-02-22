@@ -1,6 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 /**
  * Stack
  *
@@ -23,7 +20,6 @@ public class Stack implements Queue {
      * DESCRIPTION
      *
      * @param element = Ein Zahlenelement, welches auf den Stack gelegt werden soll.
-     * @return void
      */
 
     @Override
@@ -41,27 +37,29 @@ public class Stack implements Queue {
     /**
      * Methode removeElement
      *
-     * DESCRIPTION
-     *
-     * @return void
+     * Die 'removeElement'-Methode soll nach dem FIFO-Prinzip das erste Element entfernen.
      */
 
     @Override
     public void removeElement() {
-        //TODO
+        System.arraycopy(stack, 1, stack, 0, stack.length-1);
     }
 
     /**
      * Methode isEmpty
      *
-     * DESCRIPTION
+     * Die 'isEmpty'-Methode überprüft, ob der Stack leer ist.
      *
-     * @return Gibt zurück, ob der Stack leer ist (true or false -> Boolean).
+     * @return Gibt zurück, ob der Stack leer ist oder nicht (true or false -> Boolean).
      */
 
     @Override
     public boolean isEmpty() {
-        //TODO
+        for (int number : stack) {
+            if (number != 0) {
+                return false;
+            }
+        }
         return true;
     }
 }
