@@ -1,4 +1,4 @@
-package Main;
+package src.Main;
 
 
 /**
@@ -89,7 +89,6 @@ public class Queue {
             output+= ",";
         }
 
-        output+= "\n the Length now is: " + this.queue.length;
         return output;
 
     }
