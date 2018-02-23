@@ -6,7 +6,7 @@ package src.Main;
  * The Stack will resize automatically, if more space is needed. When you remove/pop the queue, you will
  * get the first value you entered. You can pop till the stack is empty. An empty stack will return the default value 999999999
  */
-public class Queue {
+public class Queue implements QueueInterface {
 
     //Membervariables
     private int[] queue = new int[1];
